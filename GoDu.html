@@ -1,0 +1,45 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="GoDu.css">
+	<title>Godu</title>
+	<script type="text/javascript">
+
+		function hideshow(which) {
+				which.style.display = "block";
+				document.getElementById('button').style.display = "none";
+				document.getElementById('container').style.background = "white";
+		}
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<div id = "headerContent">
+				<div id = "logo">
+					<img src = "http://i.imgur.com/oTXp4TJ.png" class = "center" style = "width:75px; height:auto;margin:0; padding:0;">
+				</div>
+			</div>
+		</header>
+		
+		<a id = "button" href = "#" onclick = "hideshow(document.getElementById('list'))"><img src = "http://i.imgur.com/8rrsq71.png"></a>
+		
+		<ul id="list" style = "display:none">{{#each events}} {{> event}} {{/each}}
+		</ul>
+
+	</div>
+
+</body>
+
+<template name = "button">
+</template>
+
+
+<template name="event"> 
+	<a href="javascript:hideshow(document.getElementById('list'))">
+		<li>
+			<h1>{{event_name}} at {{org}}</h1><br>
+			Date: {{date}} Time: {{time}} <br>
+		</li>
+	</a>
+	<p>{{description}}</p>
+</template>
